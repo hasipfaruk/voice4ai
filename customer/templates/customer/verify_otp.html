@@ -1,0 +1,40 @@
+{% extends "customer/base.html" %}# settings.py
+{% comment %} {% extends "customer/base.html" %}
+{% block verify_Otp %}
+
+
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <form class="text-center">
+        <h3 class="mb-4">Enter OTP</h3>
+        <div class="otp-container mb-4">
+            <input type="text" class="form-control otp-input" maxlength="1" id="input1">
+            <input type="text" class="form-control otp-input" maxlength="1" id="input2">
+            <input type="text" class="form-control otp-input" maxlength="1" id="input3">
+            <input type="text" class="form-control otp-input" maxlength="1" id="input4">
+        </div>
+        <button type="button" class="btn btn-primary">Verify OTP</button>
+        <span>Didn't receive OTP? <a href="{% url 'verify_otp' %}">Resend OTP</a></span>
+
+    </form>
+</div>
+{% endblock verify_Otp %} {% endcomment %}
+
+{% comment %} new code {% endcomment %}
+
+
+{% block verify_Otp %}
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <form class="text-center" method="POST" action="{% url 'verify_otp' %}">
+        {% csrf_token %}
+        <h3 class="mb-4">Enter OTP</h3>
+        <div class="otp-container mb-4">
+            <input type="text" class="form-control otp-input" maxlength="1" name="otp1" required>
+            <input type="text" class="form-control otp-input" maxlength="1" name="otp2" required>
+            <input type="text" class="form-control otp-input" maxlength="1" name="otp3" required>
+            <input type="text" class="form-control otp-input" maxlength="1" name="otp4" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Verify OTP</button>
+        <span>Didn't receive OTP? <a href="{% url 'verify_otp' %}">Resend OTP</a></span>
+    </form>
+</div>
+{% endblock verify_Otp %}
