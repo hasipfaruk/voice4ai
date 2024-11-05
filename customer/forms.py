@@ -12,3 +12,16 @@ class SignupForm(UserCreationForm):
         model = User
         # fields = ['first_name', 'last_name', 'phone_number', 'username', 'password1', 'password2']
         fields = ('username', 'phone', 'password1', 'password2') 
+
+
+
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from .models import User
+
+class SignupForm(UserCreationForm):
+    phone = forms.CharField(max_length=15)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'phone', 'password1', 'password2']
