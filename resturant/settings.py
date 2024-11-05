@@ -25,9 +25,10 @@ TEMPLATES_DIR = BASE_DIR / 'templates'
 SECRET_KEY = 'django-insecure-1nrt1-dg7ba&yp9jd^2an^k3(k#i6iu&uyi)7uyksyuk=ydf25'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*.versel.app"]
+ALLOWED_HOSTS = [".versel.app"]
 # ALLOWED_HOSTS = []
 
 
