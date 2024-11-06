@@ -2,7 +2,7 @@
     "builds": [{
         "src": "resturant/wsgi.py",
         "use": "@vercel/python",
-        "config": { "maxLambdaSize": "500mb", "runtime": "python3.12.4" }
+        "config": { "maxLambdaSize": "250mb", "runtime": "python3.12.4" }
     },
     {
         "src": "build_files.sh",
