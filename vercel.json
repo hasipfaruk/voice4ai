@@ -1,0 +1,33 @@
+{
+    "builds": [{
+        "src": "resturant/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "250mb", "runtime": "python3.12.4" }
+    },
+    {
+        "src": "build_files.sh",
+        "use": "@vercel/static-build",
+        "config": {
+            "distDir": "staticfiles_build",
+            "ignore": [
+                "node_modules/**/*",
+                "*.py",
+                "*.sh"
+            ],
+            "includeFiles": [
+                "static/**/*.css",
+                "static/**/*.js"
+            ]
+        }
+    }],
+    "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "resturant/wsgi.py"
+        }
+    ]
+}
